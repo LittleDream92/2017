@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A81EAD181E4C0A00006EC6CF /* UIWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A81EAD171E4C0A00006EC6CF /* UIWebViewViewController.m */; };
+		A81EAD1B1E4C0A0D006EC6CF /* WKWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A81EAD1A1E4C0A0D006EC6CF /* WKWebViewViewController.m */; };
 		A8A9CFF41E4AB375003E6F3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A9CFF31E4AB375003E6F3E /* main.m */; };
 		A8A9CFF71E4AB375003E6F3E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A9CFF61E4AB375003E6F3E /* AppDelegate.m */; };
 		A8A9CFFA1E4AB375003E6F3E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A9CFF91E4AB375003E6F3E /* ViewController.m */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A81EAD161E4C0A00006EC6CF /* UIWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebViewViewController.h; sourceTree = "<group>"; };
+		A81EAD171E4C0A00006EC6CF /* UIWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWebViewViewController.m; sourceTree = "<group>"; };
+		A81EAD191E4C0A0D006EC6CF /* WKWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewViewController.h; sourceTree = "<group>"; };
+		A81EAD1A1E4C0A0D006EC6CF /* WKWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewViewController.m; sourceTree = "<group>"; };
 		A8A9CFEF1E4AB375003E6F3E /* OC-WebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OC-WebView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A9CFF31E4AB375003E6F3E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A8A9CFF51E4AB375003E6F3E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +68,10 @@
 				A8A9CFF61E4AB375003E6F3E /* AppDelegate.m */,
 				A8A9CFF81E4AB375003E6F3E /* ViewController.h */,
 				A8A9CFF91E4AB375003E6F3E /* ViewController.m */,
+				A81EAD161E4C0A00006EC6CF /* UIWebViewViewController.h */,
+				A81EAD171E4C0A00006EC6CF /* UIWebViewViewController.m */,
+				A81EAD191E4C0A0D006EC6CF /* WKWebViewViewController.h */,
+				A81EAD1A1E4C0A0D006EC6CF /* WKWebViewViewController.m */,
 				A8A9CFFB1E4AB375003E6F3E /* Main.storyboard */,
 				A8A9CFFE1E4AB375003E6F3E /* Assets.xcassets */,
 				A8A9D0001E4AB375003E6F3E /* LaunchScreen.storyboard */,
@@ -152,6 +162,8 @@
 			files = (
 				A8A9CFFA1E4AB375003E6F3E /* ViewController.m in Sources */,
 				A8A9CFF71E4AB375003E6F3E /* AppDelegate.m in Sources */,
+				A81EAD181E4C0A00006EC6CF /* UIWebViewViewController.m in Sources */,
+				A81EAD1B1E4C0A0D006EC6CF /* WKWebViewViewController.m in Sources */,
 				A8A9CFF41E4AB375003E6F3E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +319,7 @@
 				A8A9D0081E4AB375003E6F3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
