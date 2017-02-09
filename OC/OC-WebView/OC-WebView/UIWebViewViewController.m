@@ -30,6 +30,8 @@
     //设置代理
     self.mainWebView.delegate = self;
     
+    [self.mainWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+    
     /*
      //加载数据的三种方式
      //1. 通过URL来进行加载,URL可以是远程的也可以是本地的
