@@ -50,7 +50,8 @@
     
     [self.view addSubview:self.wkWebView];
     
-    
+    //  问题小结:
+    // iOS 8 下WKWebView不支持加载本地HTML，iOS 9开始支持
     // UIWebView 上的修改UserAgent的方法在WKWebView上不起作用，可以参考一下stackOverFlow上的解决方案：http://stackoverflow.com/questions/26994491/set-useragent-in-wkwebview
     
     
