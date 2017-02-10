@@ -1,0 +1,38 @@
+
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+ <metacharset="UTF-8">
+ <title></title> 
+</head> 
+ <body>
+ <br>
+ <br> 
+<p></p> 
+<div> 
+ <button onclick="fn_call()"style="font-size:30px">打电话</button> 
+</div> 
+<p></p> 
+<div> 
+ <button onclick="fn_open_canmera()"style="font-size:30px">拍照</button>
+ </div> 
+<br> 
+ <a href="http://www.baidu.com"style="font-size:30px">百度</a> 
+ <script> 
+ <!--    点击网页打电话按钮调用这个方法-->
+ function fn_call(){
+//alert('fn_call'); 
+//调用OC中的call方法  
+  //window代表拿到浏览器窗口，就会响应到webView的这个 shouldStartLoadWithRequest代理方法，规定一个具体的协议，如下，要避开http，类似app间的跳转协议  
+<!--    window.location.href = 'http://www.baidu.com';-->
+ window.location.href = 'toOC://call:?18612345678'; 
+} 
+ <!--    点击网页打拍照钮调用这个方法--> 
+function fn_open_canmera(){
+//alert('fn_open_canmera'); 
+//调用OC中的openCanmera方法 
+ window.location.href = 'toOC://openCanmera'; 
+} 
+</script> 
+ </body> 
+</html>

@@ -30,7 +30,14 @@
     //设置代理
     self.mainWebView.delegate = self;
     
-    [self.mainWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+    //加载本地HTML文件
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"html" ofType:@"html"];
+    NSFileHandle *readHandle = [NSFileHandle fileHandleForReadingAtPath:path];
+    NSString *htmlString = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+    [self.mainWebView loadHTMLString:htmlString baseURL:nil];
+    
+    //加载URL
+//    [self.mainWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
     
     /*
      //加载数据的三种方式
@@ -72,9 +79,42 @@
 
 }
 
+#pragma mark - action
+/**  *  打电话  */
+-(void)call:(NSString*)phone{
+    NSLog(@"call......:%@",phone);
+}
+
+/**   *  打开照相机  */
+-(void)openCanmera{
+    NSLog(@"openCanmera......");
+}
+
 #pragma mark - UIWebViewDelegate
 //webView即将加载的时候，通过返回值确定是否加载
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    //可以在此处通过拦截request获取即将跳转的信息和相应的type：navigationType
+    
+    //在JS中调用OC
+    NSString *url = request.URL.absoluteString;
+    NSLog(@"链接: %@", url);
+//    [urlhasPrefix:@"tooc://"];
+   
+    NSRange range = [url rangeOfString:@"tooc://"];
+    NSUInteger loc = range.location;
+    if (loc != NSNotFound) {
+    
+        // 方法名
+        NSString *method = [url substringFromIndex:loc + range.length];
+        NSLog(@"method:%@",method);
+        // 将方法名转成SEL
+        SEL sel = NSSelectorFromString(method);
+        if ([self respondsToSelector:sel]) {
+            [self performSelector:sel withObject:nil];
+        }
+    }
+    
+    
     return YES;
 }
 
@@ -86,7 +126,23 @@
 
 //webView结束加载的时候
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    //OC调用JS交互（掌握一些基本的html语法和JS语法）
     
+    //1、读取当前页面的URL
+    // document.location.href是获取网页url的js语法，意思是，webView执行以下这句js代码，就会返回我们想要的网页地址，进而知道用户的访问量
+    NSString *url = [webView stringByEvaluatingJavaScriptFromString:@"document.location.href"];
+    NSLog(@"local url : %@", url);
+    
+    //2、读取当前页面的标题
+    NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    NSLog(@"local title : %@", title);
+    
+    //3、JS1是JS获取标签元素a的方法，JS2是将a删除，实现了动态删除标签a的功能，实现了交互
+    NSString *js1 = @"var a = document.getElementByTagName('a')[1]";
+    [webView stringByEvaluatingJavaScriptFromString:js1];
+    
+    NSString *js2 = @"a.parentNode.removeChild(a)";
+    [webView stringByEvaluatingJavaScriptFromString:js2];
 }
 
 //webView加载出错的时候
