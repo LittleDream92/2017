@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-    /*
+   
     //create a WKWebView
     self.wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.wkWebView];
@@ -33,7 +33,7 @@
     //加载网页数据（URL、NSString、NSDATA3种方式）
     [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
     
-    */
+     /*
     //动态加载并运行JS代码
     // 图片缩放的js代码
     NSString *js = @"var count = document.images.length;for (var i = 0; i < count; i++) {var image = document.images[i];image.style.width=375;};window.alert('找到' + count + '张图');";
@@ -49,6 +49,7 @@
     self.wkWebView.navigationDelegate = self;
     
     [self.view addSubview:self.wkWebView];
+    */
     
     //  问题小结:
     // iOS 8 下WKWebView不支持加载本地HTML，iOS 9开始支持
@@ -63,7 +64,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - WKNavigationDelegate
 #pragma mark -追踪加载过程(加载的状态回调)
 //页面开始加载时调用
@@ -126,7 +127,7 @@
 }
 
 
-*/
+
 
 
 /*

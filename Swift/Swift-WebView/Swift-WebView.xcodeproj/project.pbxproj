@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8976D771E51535A00685398 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8976D761E51535A00685398 /* WKWebViewController.swift */; };
 		A8A9D0161E4AB38B003E6F3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A9D0151E4AB38B003E6F3E /* AppDelegate.swift */; };
 		A8A9D0181E4AB38B003E6F3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A9D0171E4AB38B003E6F3E /* ViewController.swift */; };
 		A8A9D01B1E4AB38B003E6F3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8A9D0191E4AB38B003E6F3E /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A8976D761E51535A00685398 /* WKWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		A8A9D0121E4AB38B003E6F3E /* Swift-WebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-WebView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A9D0151E4AB38B003E6F3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8A9D0171E4AB38B003E6F3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				A8A9D0151E4AB38B003E6F3E /* AppDelegate.swift */,
 				A8A9D0171E4AB38B003E6F3E /* ViewController.swift */,
+				A8976D761E51535A00685398 /* WKWebViewController.swift */,
 				A8A9D0191E4AB38B003E6F3E /* Main.storyboard */,
 				A8A9D01C1E4AB38B003E6F3E /* Assets.xcassets */,
 				A8A9D01E1E4AB38B003E6F3E /* LaunchScreen.storyboard */,
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8976D771E51535A00685398 /* WKWebViewController.swift in Sources */,
 				A8A9D0181E4AB38B003E6F3E /* ViewController.swift in Sources */,
 				A8A9D0161E4AB38B003E6F3E /* AppDelegate.swift in Sources */,
 			);
@@ -297,6 +301,7 @@
 				A8A9D0261E4AB38B003E6F3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
