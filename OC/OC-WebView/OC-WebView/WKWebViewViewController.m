@@ -23,15 +23,15 @@
    
     //create a WKWebView
     self.wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.wkWebView];
-    
- 
-    //遵守协议(2个委托)
-    self.wkWebView.navigationDelegate = self;
-    self.wkWebView.UIDelegate = self;
-    
     //加载网页数据（URL、NSString、NSDATA3种方式）
     [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+    //将WKWebView添加到视图
+    [self.view addSubview:self.wkWebView];
+    
+//    //遵守协议(2个委托)
+//    self.wkWebView.navigationDelegate = self;
+//    self.wkWebView.UIDelegate = self;
+    
     
      /*
     //动态加载并运行JS代码
@@ -80,6 +80,11 @@
 // 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     NSLog(@"页面加载完成之后调用: %s", __FUNCTION__);
+    
+    //原声调用JavaScript代码需要在页面加载完毕之后
+    [self.wkWebView evaluateJavaScript:@"showAlert('奏是一个弹框')" completionHandler:^(id _Nullable item, NSError * _Nullable error) {
+        //这里处理是否通过了或者执行JS错误的代码
+    }];
 }
 
 //页面加载失败时调用
