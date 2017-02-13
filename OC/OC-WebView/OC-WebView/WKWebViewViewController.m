@@ -17,23 +17,50 @@
 
 @implementation WKWebViewViewController
 
+-(void)dealloc {
+    //将当前ViewController设置为MessageHandler之后需要在这里移除，否则会造成内存泄漏
+    [self.wkWebView.configuration.userContentController removeScriptMessageHandlerForName:@"NativeMethod"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-   
+/*  1.
     //create a WKWebView
     self.wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];
     //加载网页数据（URL、NSString、NSDATA3种方式）
     [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
     //将WKWebView添加到视图
     [self.view addSubview:self.wkWebView];
+*/
+
+/*  2.  */
+    //WKWebView还可以定制配置初始化
+    //创建配置
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    //创建UserContentController（提供JavaScript向web View发送消息的方法）
+    WKUserContentController *userContent = [[WKUserContentController alloc] init];
+    //添加消息处理，注意：self指代的对象需要遵守WKScriptMwssageHandle，结束时需要移除
+    [userContent addScriptMessageHandler:self name:@"NativeMethod"];
+    //将UserContentController设置到配置文件
+    config.userContentController = userContent;
+    //高端的自定义配置创建WkWebView
+    self.wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:config];
+    //加载网页数据（URL、NSString、NSDATA3种方式）
+    [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+    //将WKWebView添加到视图
+    [self.view addSubview:self.wkWebView];
     
-//    //遵守协议(2个委托)
-//    self.wkWebView.navigationDelegate = self;
-//    self.wkWebView.UIDelegate = self;
+    //WKWebView有个内置的scrollView，也可以通过scrollView设置偏移量
+    self.wkWebView.scrollView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
     
     
-     /*
+    //遵守协议(2个委托)
+    self.wkWebView.navigationDelegate = self;
+    self.wkWebView.UIDelegate = self;
+    
+    
+/*  3.
     //动态加载并运行JS代码
     // 图片缩放的js代码
     NSString *js = @"var count = document.images.length;for (var i = 0; i < count; i++) {var image = document.images[i];image.style.width=375;};window.alert('找到' + count + '张图');";
